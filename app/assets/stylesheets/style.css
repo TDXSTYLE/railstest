@@ -1,0 +1,55 @@
+.alert-error {
+  @extend .alert-danger;
+}
+.alert-notice {
+  @extend .alert-info;
+}
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.container {
+
+    width: 853px;
+}
+
+.page-title {
+  text-align: center;
+}
+
+
+.signbla {
+    width: 20px;
+}
+
+#resumeimage {
+
+     background-image: url(image_path('office.jpg'));
+     height: 492px;
+     max-width: 99%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+
+}
+
+
+.ultimateguide {
+
+     background-image: url(image_path('paymentcard.png'));
+     max-width: 99%;
+
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.frv {
+
+
+
+            font-size: 1.4rem;
+
+}
