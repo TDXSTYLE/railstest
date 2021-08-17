@@ -29,18 +29,31 @@ class ProjectsController < ApplicationController
  # POST /projects.json
  def create
    @project = Project.new(project_params)
+   # @project.user_id = current_user.id
+   # respond_to do |format|
+   #   if @project.save
+   #     format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
 
-   respond_to do |format|
-     if @project.save
-       format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
+   #   else
+   #     format.html { render :new }
+
+   #   end
+
+      if @project.save
+        flash[:success] = 'Product has been created'
+        redirect_to projects_path
+
 
      else
-       format.html { render :new }
 
-     end
+
+
+   flash.now[:danger] = 'Product has not been created'
+    render :new
+
+
    end
  end
-
  # PATCH/PUT /projects/1
  # PATCH/PUT /projects/1.json
  def update
