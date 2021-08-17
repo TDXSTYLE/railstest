@@ -1,72 +1,59 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <%= link_to "Alias::Nerd", root_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-
-        <% if user_signed_in? %>
-
-
-          <li class="nav-item">
-             <%= link_to "Edit Account", edit_user_registration_path, class: 'nav-link' %>
-           </li>
-
-
-         <li class="nav-item">
-
-           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
-         </li>
-
-
-         <li class="nav-item">
-
-          <%= User.subs_count %>
-         </li>
-
-
- <li class="nav-item">
-          <a href="mailto:fraserbutts@protonmail.com">Subscribers   <i class="fa fa-user-plus"></i><%= User.subs_count %></a>
-         </li>
+<div class="header">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-2">
+                <div class="brand">
+                    <a href="index.html">
 
 
 
+                        <%= link_to image_tag("office.jpg", alt: "logo", size: "56x56"), root_path %>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="topbar">
+                    <div class="topbar-col">
+                         <a href="mailto:fraserbutts@protonmail.com">Subscribers   <i class="fa fa-user-plus"></i><%= User.subs_count %></a>
+                        <a href="mailto:fraserbutts@protonmail.com"><i class="fa fa-envelope"></i>fraserbutts@protonmail.com</a>
+                    </div>
+                    <div class="topbar-col">
 
+                    </div>
+                    <div class="topbar-col">
+                        <div class="topbar-social">
+                          <a href="https://twitter.com/FutureDevelopm7"><i class="fa fa-twitter"></i></a>
+                            <a href=""><i class="fa fa-facebook-f"></i></a>
+                            <a href="https://www.youtube.com/watch?v=FY3lM8j6_m4"><i class="fa fa-youtube"></i></a>
+                            <a href=""><i class="fa fa-instagram"></i></a>
+                            <a href=""><i class="fa fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar navbar-expand-lg bg-light navbar-light">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-          <% else %>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="navbar-nav ml-auto">
 
 
 
 
 
+                  <% if current_user_admin? %>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to 'Admin Panel', edit_config_nerd_path %></li>
+                      <li><%= link_to 'New Project', new_project_path %></li>
+                      <li><%= link_to 'New Video', new_video_path %></li>
+                    <% end %>
 
 
+                    <% unless current_user_subscribed? %>
 
-         <li class="nav-item">
-
-           <%= link_to "Sign In", new_user_session_path, class: 'nav-link' %>
-         </li>
-         <li class="nav-item">
-
-           <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary navbar-btn", method: :get, class: 'nav-link' %>
-         </li>
-
-
-
-
-         <% end %>
-
-         <% unless current_user_subscribed? %>
-
-                   <li><%= button_to "I want this!", new_subscription_path, class: "btn btn-primary navbar-btn", method: :get %></li>
+                      <li><%= button_to "Subscribe!", new_subscription_path, class: "btn btn-warning navbar-btn", method: :get %></li>
 
                    <% else %>
 
@@ -74,33 +61,62 @@
 
 
 
-                   <% if current_user_admin? %>
-                        <li role="separator" class="divider"></li>
-                        <li><%= link_to 'Admin Panel', edit_config_nerd_path %></li>
-                        <li><%= link_to 'New Project', new_project_path %></li>
-                        <li><%= link_to 'New Video', new_video_path %></li>
-                      <% end %>
 
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+
+
+
+
+
+                            <%= link_to "Free Videos", "https://www.videosubsscription.com/", :target => "_blank", class: "btn" %>
+
+
+                      <ul class="navbar-nav ml-auto pull-right">
+                              <% if user_signed_in? %>
+                    <li class="nav-item">
+
+
+                         <%= link_to 'Edit Account', edit_user_registration_path, class: "nav-link text-black" %>
+                    </li>
+
+
+
+                    <li class="nav-item">
+
+                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+                   </li>
+
+
+                    <% else %>
+
+
+                     <li class="nav-item mr5">
+
+
+                         <%= link_to 'Sign In', new_user_session_path, class: "btn btn-primary" %>
+                    </li>
+
+                    <li class="nav-item signbla"></li>
+
+
+                     <li class="nav-item">
+
+
+                         <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary navbar-btn", method: :get, class: 'btn btn-primary' %>
+                    </li>
+
+
+                      <li class="nav-item signbla"></li>
+
+
+                     <% end %>
+
+                       </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</nav>
+</div>

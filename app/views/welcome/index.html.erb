@@ -2,52 +2,50 @@
  Ruby on Rails by Coding Actual Projects
 <% end %>
 
-<iframe width="853" height="480" src=<% if Rails.env.development? %>""<% else %> <%= "https://www.youtube.com/embed/#{@video_home_id}?rel=0&amp;autoplay=1;showinfo=0"%><% end %> frameborder="0" allowfullscreen></iframe>
 
 
-<%= render partial: "shared/subs_panel" %>
-
-<hr />
-<h2 class="text-center">Latest Projects</h2>
-<div class="row">
-
-<%= render partial: "shared/project_panel", collection: @projects, as: "project" %>
+<h2 class="text-center"><span class="badge badge-secondary lifiteme text-dark">Ultimate Guide For Full-time Candidates</span></h2>
 
 
-</div>
-<div class="text-center">
-<%= link_to "View more projects", projects_path, class: "btn btn-sm btn-default" %>
-</div>
+
+
+ <section id="resumeimage">
+
+
+    </section>
 
 <hr />
 
-<div class="row text-center">
 
-  <div class="col-sm-6">
-    <h2>About Alias::Nerd</h2>
-    <p></p>
-    <h2>My Setup</h2>
-    <h3>Laptop</h3>
-    <ul>
-        <li>MacBook Pro</li>
-    </ul>
-    <h3>Desktop</h3>
-    <ul>
-        <li>Windows 10 OS</li>
-    </ul>
-    <p></p>
-  </div>
 
-   <div class="col-sm-6">
-     <h2>Why Subscribe?</h2>
-     <p></p>
-     <ul>
-        <li></li>
-    </ul>
-    <h2>Why Donate?</h2>
-     <p></p>
-     <ul>
-        <li></li>
-    </ul>
-  </div>
-</div>
+
+
+
+
+
+
+
+ <!-- Service Row Start -->
+            <div class="service-row">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="service-row-img">
+                               This is the ultimate guide for full-time candidates. It’s compiled from the varied and extensive interview experiences of recent school graduates. You will find helpful tips to guide you through the interview process and hundreds of interview prep questions.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-row-text">
+                                <h2 class="section-title">Ultimate Guide</h2>
+                                <p>
+                                    <%= render partial: "shared/project_panel", collection: @projects, as: "project" %>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Service Row End -->
+
+<hr />
