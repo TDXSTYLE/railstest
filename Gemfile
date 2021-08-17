@@ -23,6 +23,21 @@ gem 'bootstrap', '~> 5.1'
 gem 'jquery-rails'
 
 gem 'coffee-rails', '~> 5.0'
+
+gem 'better_errors'
+
+gem 'figaro'
+
+
+gem 'devise', '~> 4.8'
+
+
+gem 'bootstrap_form'
+
+
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+
+gem 'stripe', '~> 5.38'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

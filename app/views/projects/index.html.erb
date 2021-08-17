@@ -1,0 +1,105 @@
+<h1>Our First Project</h1>
+
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Projects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Web link</th>
+      <th>Github link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.description %></td>
+        <td><%= project.web_link %></td>
+        <td><%= project.github_link %></td>
+        <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', new_project_path if user_signed_in? %>
+
+
+
+
+
+
+<% @projects.each do |project| %>
+
+<div class="col-md-6">
+<div class="card text-center">
+                <div class="card-body">
+                   <h3><%= truncate(project.name, length: 20) %></h3>
+              <h3><%= truncate(project.description, length: 26) %></h3>
+
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                       <% unless current_user_subscribed? %>
+                     <%= link_to "Website", project.web_link, class: "btn btn-sm btn-primary" %>
+                       <% end %>
+                    </div>
+
+
+                     <div class="col-md-4">
+
+                       <%= link_to "Github", project.github_link, class: "btn btn-sm btn-primary" %>
+                    </div>
+
+
+                     <div class="col-md-4">
+
+
+                    </div>
+
+                </div>
+
+
+
+                 <div class="row">
+
+                    <div class="col-md-4">
+                     <%= link_to 'Show', project %>
+
+                    </div>
+
+
+                     <div class="col-md-4">
+
+                       <%= link_to 'Edit', edit_project_path(project) %>
+                    </div>
+
+
+                     <div class="col-md-4">
+                      <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+                    </div>
+
+                </div>
+
+                </div>
+            </div>
+
+          </div>
+
+        </div>
+<% end %>
