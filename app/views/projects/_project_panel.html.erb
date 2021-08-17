@@ -1,0 +1,85 @@
+<!-- ICON BOXES -->
+
+        <div class="col-md-6">
+          <div class="card bg-dark text-white text-center">
+            <div class="card-body">
+              <h3><%= truncate(project.name, length: 20) %></h3>
+              <h3><%= truncate(project.description, length: 26) %></h3>
+              <h3><%= link_to "#{ project.videos.count } Screencasts", videos_path(project: project.id), class: "btn btn-default" %></h3>
+              <h3><%= link_to "Screencasts", videos_path(project: project.id), class: "btn btn-sm btn-primary" %></h3>
+
+
+
+              <div class="row">
+
+    <div class="col-md-4">
+        <%= link_to "Screencasts", videos_path(project: project.id), class: "btn btn-sm btn-primary" %>
+      </div>
+
+
+    <% if user_signed_in? %>
+      <div class="col-md-4">
+        <%= link_to "Visit App", url_for(project.web_link), class: "btn btn-sm btn-primary" %>
+      </div>
+
+    <% else %>
+    <div class="col-md-4">
+      <%= link_to "Visit App", new_user_registration_path, method: :get, class: 'btn btn-primary btn-sm' %>
+    </div>
+    <% end %>
+
+
+
+
+
+
+      <% if user_signed_in? %>
+      <div class="col-md-4">
+        <%= link_to "Github Repo", project.github_link, class: "btn btn-sm btn-primary" %>
+      </div>
+
+    <% else %>
+    <div class="col-md-4">
+      <%= link_to "Github Repo", new_user_registration_path, method: :get, class: 'btn btn-primary btn-sm' %>
+      </div>
+    <% end %>
+
+
+
+    </div>
+
+    <% if current_user_admin? %>
+
+      <div class="row">
+   <div class="col-md-12">
+      <%= link_to "Edit", edit_project_path(project) %>
+      </div>
+      </div>
+
+
+    <% end %>
+
+
+            </div>
+
+          </div>
+
+
+             <br>
+        <br>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- New Design -->

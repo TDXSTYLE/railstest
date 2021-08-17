@@ -27,8 +27,15 @@
          </li>
 
 
+         <li class="nav-item">
+
+          <%= User.subs_count %>
+         </li>
 
 
+ <li class="nav-item">
+          <a href="mailto:fraserbutts@protonmail.com">Subscribers   <i class="fa fa-user-plus"></i><%= User.subs_count %></a>
+         </li>
 
 
 
@@ -57,6 +64,22 @@
 
          <% end %>
 
+         <% unless current_user_subscribed? %>
+
+                   <li><%= button_to "I want this!", new_subscription_path, class: "btn btn-primary navbar-btn", method: :get %></li>
+
+                   <% else %>
+
+                   <% end %>
+
+
+
+                   <% if current_user_admin? %>
+                        <li role="separator" class="divider"></li>
+                        <li><%= link_to 'Admin Panel', edit_config_nerd_path %></li>
+                        <li><%= link_to 'New Project', new_project_path %></li>
+                        <li><%= link_to 'New Video', new_video_path %></li>
+                      <% end %>
 
 
         <li class="nav-item dropdown">

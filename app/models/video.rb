@@ -12,5 +12,5 @@ class Video < ApplicationRecord
        with: /\A[^0-9 !@#\$%\^&*+_=]+\z/,
        message: "The name has invalid characters, please supply a different name."
     }
-
+   belongs_to :project
 end

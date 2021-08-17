@@ -38,6 +38,8 @@ gem 'bootstrap_form'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
 gem 'stripe', '~> 5.38'
+
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

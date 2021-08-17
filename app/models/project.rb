@@ -17,4 +17,6 @@ class Project < ApplicationRecord
        message: "The name has invalid characters, please supply a different name."
     }
 
+
+  has_many :videos
 end

@@ -1,31 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% content_for :page_title do %>
 
-<h1>Videos</h1>
+<%= @project.present? ? "#{@project.name.titleize} Videos" : "Screencast Videos" %>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Video source</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @videos.each do |video| %>
-      <tr>
-        <td><%= video.name %></td>
-        <td><%= video.description %></td>
-        <td><%= video.video_source_id %></td>
-        <td><%= link_to 'Show', video %></td>
-        <td><%= link_to 'Edit', edit_video_path(video) %></td>
-        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Video', new_video_path %>
+<%= render(partial: 'video_panel', collection: @videos, as: :video) || 'No videos at this time.' %>

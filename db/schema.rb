@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_16_231448) do
+ActiveRecord::Schema.define(version: 2021_08_17_153727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "config_nerds", force: :cascade do |t|
+    t.string "video_ad_id"
+    t.string "video_temp_id"
+    t.string "video_stream_id"
+    t.boolean "live", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -68,9 +77,11 @@ ActiveRecord::Schema.define(version: 2021_08_16_231448) do
     t.string "name"
     t.string "description"
     t.string "video_source_id"
+    t.integer "project_id"
     t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_videos_on_project_id"
     t.index ["slug"], name: "index_videos_on_slug", unique: true
   end
 

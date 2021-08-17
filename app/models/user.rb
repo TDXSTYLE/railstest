@@ -23,4 +23,10 @@ class User < ApplicationRecord
  end
 
 
+ def self.subs_count
+        User.where.not(stripe_id: nil).count
+      end
+
+
+
 end
