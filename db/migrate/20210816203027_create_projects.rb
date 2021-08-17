@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration[6.1]
       t.string :description
       t.string :web_link
       t.string :github_link
-      t.string :slug, null: false
+    #  t.string :slug, null: false
       t.timestamps
     end
   end

@@ -2,8 +2,8 @@ class Project < ApplicationRecord
 
 
 
-  extend FriendlyId
-   friendly_id :name, use: :slugged
+  #extend FriendlyId
+   #friendly_id :name, use: :slugged
 
   validates :name, presence: true
 	validates :description, presence: true
@@ -12,10 +12,10 @@ class Project < ApplicationRecord
 
 
   validates :name, length: { minimum: 3 }
-     validates :name, format: {
-       with: /\A[^0-9 !@#\$%\^&*+_=]+\z/,
-       message: "The name has invalid characters, please supply a different name."
-    }
+    #  validates :name, format: {
+    #    with: /\A[^0-9 !@#\$%\^&*+_=]+\z/,
+    #    message: "The name has invalid characters, please supply a different name."
+    # }
 
 
   has_many :videos
